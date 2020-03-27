@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="TabIt.Views.BassTabSegment"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TabIt.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="160" d:DesignWidth="150">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\ejboh\source\repos\TabIt\Views\Images\BassTabSection_1.png" Opacity="0.5" />
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="25"/>
+
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="G1" Grid.Column="0" Grid.Row="1" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="G2" Grid.Column="1" Grid.Row="1" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="G3" Grid.Column="2" Grid.Row="1" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="G4" Grid.Column="3" Grid.Row="1" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="D1" Grid.Column="0" Grid.Row="3" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="D2" Grid.Column="1" Grid.Row="3" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="D3" Grid.Column="2" Grid.Row="3" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="D4" Grid.Column="3" Grid.Row="3" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="A1" Grid.Column="0" Grid.Row="5" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="A2" Grid.Column="1" Grid.Row="5" FontSize="16" TextAlignment="Center"/>
+        <TextBlock x:Name="A3" Grid.Column="2" Grid.Row="5" FontSize="16" TextAlignment="Center"/>
+        <TextBlock x:Name="A4" Grid.Column="3" Grid.Row="5" FontSize="16" TextAlignment="Center"/>
+        <TextBlock x:Name="E1" Grid.Column="0" Grid.Row="7" FontSize="16" TextAlignment="Center"/>
+        <TextBlock x:Name="E2" Grid.Column="1" Grid.Row="7" FontSize="16" TextAlignment="Center"/>
+        <TextBlock x:Name="E3" Grid.Column="2" Grid.Row="7" FontSize="16" TextAlignment="Center"/>
+        <TextBlock x:Name="E4" Grid.Column="3" Grid.Row="7" FontSize="16" TextAlignment="Center"/>
+        <Button x:Name="removePanel" Grid.Column="3" Background="Transparent" BorderBrush="Transparent" Content="x" Click="removePanel_Click" Margin="14.2,0,0.4,10.2"/>
+        <TextBox x:Name="positionIdBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Background="Transparent" Width="28" RenderTransformOrigin="0.924,0.626"/>
+    </Grid>
+</UserControl>
