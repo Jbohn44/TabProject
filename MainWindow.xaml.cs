@@ -246,7 +246,7 @@ namespace TabIt
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            string messageBoxText = "ARE YOU SURE YOU WANNA DELETE THIS SHIT?";
+            string messageBoxText = "ARE YOU SURE YOU WANT TO DELETE?";
             string caption = "dooomsssdayyyy buttonnnn";
             MessageBoxButton button = MessageBoxButton.YesNoCancel;
             MessageBoxImage icon = MessageBoxImage.Warning;
@@ -275,7 +275,7 @@ namespace TabIt
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
             string messageBoxText = "Are you sure you want to exit";
-            string caption = "Fuck Me Mickey";
+            string caption = "EXIT";
             MessageBoxButton button = MessageBoxButton.YesNoCancel;
             MessageBoxImage icon = MessageBoxImage.Warning;
             MessageBoxResult result = MessageBox.Show(messageBoxText, caption, button, icon);
