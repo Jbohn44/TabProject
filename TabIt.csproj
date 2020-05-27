@@ -110,6 +110,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Interfaces\ISegmentRepository.cs" />
     <Compile Include="Migrations\201912011809221_InitialCreate.cs" />
     <Compile Include="Migrations\201912011809221_InitialCreate.designer.cs">
       <DependentUpon>201912011809221_InitialCreate.cs</DependentUpon>
@@ -134,6 +135,8 @@
       <DependentUpon>PrintWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Repository\BarRepository.cs" />
+    <Compile Include="Repository\BassTabSegmentRepository.cs" />
+    <Compile Include="Repository\GuitarTabSegmentRepository.cs" />
     <Compile Include="Repository\NoteRepository.cs" />
     <Compile Include="Repository\ProjectRepository.cs" />
     <Compile Include="Views\BassProjectPage.xaml.cs">
