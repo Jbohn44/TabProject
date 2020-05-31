@@ -9,7 +9,7 @@ using TabIt.Views;
 
 namespace TabIt.Repository
 {
-    public class BassTabSegmentRepository : ISegmentRepository
+    public class BassTabSegmentRepository
     {
         public IList<BassTabSegment> getSegments(int projectId)
         {
