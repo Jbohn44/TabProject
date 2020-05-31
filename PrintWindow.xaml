@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TabIt"
         mc:Ignorable="d"
-        Title="PRINT IT MOTHA FUCKA" Height="600" Width="850" Background="LightGray">
+        Title="PRINT" Height="600" Width="850" Background="LightGray">
 
     <Grid x:Name="outerGrid">
         <Grid.ColumnDefinitions>

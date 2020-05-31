@@ -17,14 +17,14 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10" />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition  Height="11"/>
+            <RowDefinition Height="6" />
+            <RowDefinition Height="28*" />
+            <RowDefinition Height="35*" />
+            <RowDefinition Height="30*" />
+            <RowDefinition Height="30*" />
+            <RowDefinition Height="38*" />
+            <RowDefinition Height="26*" />
+            <RowDefinition  Height="7"/>
 
         </Grid.RowDefinitions>
         <TextBlock x:Name="E1" Grid.Column="0" Grid.Row="1" FontSize="16" TextAlignment="Center" />

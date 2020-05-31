@@ -15,6 +15,8 @@ using System.Windows.Xps;
 using TabIt.Models;
 using TabIt.Repository;
 using TabIt.Views;
+using PdfSharp;
+using PdfSharp.Pdf;
 
 namespace TabIt
 {
@@ -48,9 +50,6 @@ namespace TabIt
             }
         }
 
-        // move to repository
-    
-
         private void addSegmentsToListBox(List<BassTabSegment> segments)
         {
             for(var i = 0; i < segments.Count; i++)
@@ -63,11 +62,9 @@ namespace TabIt
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           // PrintDialog pd = new PrintDialog();
-            //FlowDocument doc = this.FD;
-            //this.sectionHead.Inlines.Add(this.Project.ProjectName);
-            //IDocumentPaginatorSource idpSource = doc;
-            //pd.PrintDocument(idpSource.DocumentPaginator, doc.Name);
+            PdfDocument doc = new PdfDocument();
+            doc.AddPage();
+            doc.Save("test.pdf");
         }
     }
 }
