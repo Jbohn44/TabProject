@@ -23,8 +23,6 @@ namespace TabIt.Repository
                     var bs = new BassTabSegment(b, notes);
                     bs.Height = 150;
                     bs.Width = 150;
-                    bs.removePanel.Visibility = Visibility.Hidden;
-                    bs.positionIdBox.Visibility = Visibility.Hidden;
                     segments.Add(bs);
                 }
 

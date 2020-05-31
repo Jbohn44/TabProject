@@ -28,6 +28,10 @@ namespace TabIt.Views
         {
             InitializeComponent();
             this.BassTabSegments = new BassTabSegmentRepository().getSegments(project.ProjectId).ToList();
+            foreach(var item in BassTabSegments)
+            {
+                this.bts.Items.Add(item);
+            }
             this.Project = project;
 
         }
@@ -162,6 +166,10 @@ namespace TabIt.Views
         {
             this.bts.Items.Clear();
             this.BassTabSegments = new BassTabSegmentRepository().getSegments(Project.ProjectId).ToList();
+            foreach (var item in BassTabSegments)
+            {
+                this.bts.Items.Add(item);
+            }
 
         }
 

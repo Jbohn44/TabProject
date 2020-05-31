@@ -38,8 +38,8 @@ namespace TabIt.Views
             var b = new BarRepository().SaveBar(bar);
             var noteList = CreateNewNotes(b);
             var gSegment = new GuitarTabSegment(bar, noteList);
-            gSegment.Height = 150;
-            gSegment.Width = 100;
+            gSegment.Height = 200;
+            gSegment.Width = 200;
             GuitarTabSegments.Add(gSegment);
             bts.Items.Add(gSegment);
 
@@ -61,8 +61,8 @@ namespace TabIt.Views
                 {
                     var notes = new NoteRepository().GetNotes(b.BarId);
                     var gs = new GuitarTabSegment(b, notes);
-                    gs.Height = 150;
-                    gs.Width = 100;
+                    gs.Height = 200;
+                    gs.Width = 200;
                     segments.Add(gs);
                 }
                 foreach (var s in segments)

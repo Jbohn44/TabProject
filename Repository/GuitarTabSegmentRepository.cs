@@ -20,10 +20,8 @@ namespace TabIt.Repository
                 {
                     var notes = new NoteRepository().GetNotes(b.BarId);
                     var bs = new GuitarTabSegment(b, notes);
-                    bs.Height = 150;
-                    bs.Width = 150;
-                    bs.removePanel.Visibility = Visibility.Hidden;
-                    bs.positionIdBox.Visibility = Visibility.Hidden;
+                    bs.Height = 200;
+                    bs.Width = 200;
                     segments.Add(bs);
                 }
 
