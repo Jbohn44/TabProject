@@ -28,12 +28,8 @@ namespace TabIt.Views
         {
             InitializeComponent();
             this.BassTabSegments = new BassTabSegmentRepository().getSegments(project.ProjectId).ToList();
-            foreach(var item in BassTabSegments)
-            {
-                this.bts.Items.Add(item);
-            }
             this.Project = project;
-
+            addSegmentsToBts(this.BassTabSegments);
         }
         private void AddNotes_Click(object sender, RoutedEventArgs e)
         {
@@ -166,10 +162,7 @@ namespace TabIt.Views
         {
             this.bts.Items.Clear();
             this.BassTabSegments = new BassTabSegmentRepository().getSegments(Project.ProjectId).ToList();
-            foreach (var item in BassTabSegments)
-            {
-                this.bts.Items.Add(item);
-            }
+            addSegmentsToBts(BassTabSegments);
 
         }
 
@@ -194,6 +187,14 @@ namespace TabIt.Views
             bar.PositionId = lastPostionId + 1;
 
             return bar;
+        }
+
+        private void addSegmentsToBts(List<BassTabSegment> bassTabSegments)
+        {
+            foreach (var item in bassTabSegments)
+            {
+                this.bts.Items.Add(item);
+            }
         }
 
    

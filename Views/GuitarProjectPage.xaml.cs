@@ -27,14 +27,14 @@ namespace TabIt.Views
         public GuitarProjectPage(Project project)
         {
             InitializeComponent();
-            this.GuitarTabSegments = GetGuitarTabSegments(project.ProjectId);
+            this.GuitarTabSegments = new GuitarTabSegmentRepository().getSegments(project.ProjectId).ToList();
             Project = project;
+            addSegmentsToBts(GuitarTabSegments);
         }
 
         private void AddNotes_Click(object sender, RoutedEventArgs e)
         {
-            var bar = new Bar();
-            bar.ProjectId = this.Project.ProjectId;
+            var bar = CreateBar();
             var b = new BarRepository().SaveBar(bar);
             var noteList = CreateNewNotes(b);
             var gSegment = new GuitarTabSegment(bar, noteList);
@@ -51,31 +51,6 @@ namespace TabIt.Views
             return new NoteRepository().SaveNotes(noteList);
         }
 
-        private List<GuitarTabSegment> GetGuitarTabSegments(int id)
-        {
-            var bl = new BarRepository().GetBars(id).ToList();
-            var segments = new List<GuitarTabSegment>();
-            if (bl.Count > 0)
-            {
-                foreach (var b in bl)
-                {
-                    var notes = new NoteRepository().GetNotes(b.BarId);
-                    var gs = new GuitarTabSegment(b, notes);
-                    gs.Height = 200;
-                    gs.Width = 200;
-                    segments.Add(gs);
-                }
-                foreach (var s in segments)
-                {
-                    this.bts.Items.Add(s);
-                }
-                return segments;
-            }
-            else
-            {
-                return segments;
-            }
-        }
 
         private List<Note> CreateNotes(Bar b)
         {
@@ -239,13 +214,39 @@ namespace TabIt.Views
         public void Update_Page()
         {
             this.bts.Items.Clear();
-            this.GuitarTabSegments = GetGuitarTabSegments(Project.ProjectId);
+            this.GuitarTabSegments = new GuitarTabSegmentRepository().getSegments(Project.ProjectId).ToList();
+            addSegmentsToBts(GuitarTabSegments);
+        }
+
+        private void addSegmentsToBts(List<GuitarTabSegment> guitarTabSegments)
+        {
+            foreach (var item in guitarTabSegments)
+            {
+                this.bts.Items.Add(item);
+            }
         }
 
         private void Print_Button_Click(object sender, RoutedEventArgs e)
         {
             PrintWindow printWindow = new PrintWindow(this.Project);
             printWindow.Show();
+        }
+
+        private Bar CreateBar()
+        {
+            var bl = new BarRepository().GetBars(Project.ProjectId);
+            var bar = new Bar();
+            bar.ProjectId = Project.ProjectId;
+            if(bl.Count == 0)
+            {
+                bar.PositionId = 1;
+                return bar;
+            }
+            var sbl = bl.OrderBy(x => x.PositionId).ToList();
+            var lastPostionId = sbl.Last().PositionId;
+            bar.PositionId = lastPostionId + 1;
+
+            return bar;
         }
     }
 }
