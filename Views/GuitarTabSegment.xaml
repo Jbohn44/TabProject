@@ -17,40 +17,47 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10" />
+            <RowDefinition Height="24" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="25*" />
+            <RowDefinition Height="23*" />
             <RowDefinition />
+            <RowDefinition Height="22*" />
             <RowDefinition />
+            <RowDefinition Height="23*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="24*" />
             <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition  Height="11"/>
+            <RowDefinition Height="26*" />
+            <RowDefinition Height="18*" />
+            <RowDefinition  Height="7"/>
 
         </Grid.RowDefinitions>
-        <TextBlock x:Name="E1" Grid.Column="0" Grid.Row="1" FontSize="16" TextAlignment="Center" />
-        <TextBlock x:Name="E2" Grid.Column="1" Grid.Row="1" FontSize="16" TextAlignment="Center" />
-        <TextBlock x:Name="E3" Grid.Column="2" Grid.Row="1" FontSize="16" TextAlignment="Center" />
-        <TextBlock x:Name="E4" Grid.Column="3" Grid.Row="1" FontSize="16" TextAlignment="Center" />
-        <TextBlock x:Name="B1" Grid.Column="0" Grid.Row="2" FontSize="16" TextAlignment="Center" />
-        <TextBlock x:Name="B2" Grid.Column="1" Grid.Row="2" FontSize="16" TextAlignment="Center" />
-        <TextBlock x:Name="B3" Grid.Column="2" Grid.Row="2" FontSize="16" TextAlignment="Center" />
-        <TextBlock x:Name="B4" Grid.Column="3" Grid.Row="2" FontSize="16" TextAlignment="Center" />
-        <TextBlock x:Name="G1" Grid.Column="0" Grid.Row="3" FontSize="16" TextAlignment="Center" />
-        <TextBlock x:Name="G2" Grid.Column="1" Grid.Row="3" FontSize="16" TextAlignment="Center" />
-        <TextBlock x:Name="G3" Grid.Column="2" Grid.Row="3" FontSize="16" TextAlignment="Center" />
-        <TextBlock x:Name="G4" Grid.Column="3" Grid.Row="3" FontSize="16" TextAlignment="Center" />
-        <TextBlock x:Name="D1" Grid.Column="0" Grid.Row="4" FontSize="16" TextAlignment="Center" />
-        <TextBlock x:Name="D2" Grid.Column="1" Grid.Row="4" FontSize="16" TextAlignment="Center" />
-        <TextBlock x:Name="D3" Grid.Column="2" Grid.Row="4" FontSize="16" TextAlignment="Center" />
-        <TextBlock x:Name="D4" Grid.Column="3" Grid.Row="4" FontSize="16" TextAlignment="Center" />
-        <TextBlock x:Name="A1" Grid.Column="0" Grid.Row="5" FontSize="16" TextAlignment="Center" />
-        <TextBlock x:Name="A2" Grid.Column="1" Grid.Row="5" FontSize="16" TextAlignment="Center"/>
-        <TextBlock x:Name="A3" Grid.Column="2" Grid.Row="5" FontSize="16" TextAlignment="Center"/>
-        <TextBlock x:Name="A4" Grid.Column="3" Grid.Row="5" FontSize="16" TextAlignment="Center"/>
-        <TextBlock x:Name="Ee1" Grid.Column="0" Grid.Row="6" FontSize="16" TextAlignment="Center"/>
-        <TextBlock x:Name="Ee2" Grid.Column="1" Grid.Row="6" FontSize="16" TextAlignment="Center"/>
-        <TextBlock x:Name="Ee3" Grid.Column="2" Grid.Row="6" FontSize="16" TextAlignment="Center"/>
-        <TextBlock x:Name="Ee4" Grid.Column="3" Grid.Row="6" FontSize="16" TextAlignment="Center"/>
-        <Button x:Name="removePanel" Grid.Column="3" Background="Transparent" BorderBrush="Transparent" Content="x" Click="removePanel_Click"/>
+        <TextBlock x:Name="E1" Grid.Column="0" Grid.Row="2" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="E2" Grid.Column="1" Grid.Row="2" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="E3" Grid.Column="2" Grid.Row="2" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="E4" Grid.Column="3" Grid.Row="2" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="B1" Grid.Column="0" Grid.Row="3" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="B2" Grid.Column="1" Grid.Row="3" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="B3" Grid.Column="2" Grid.Row="3" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="B4" Grid.Column="3" Grid.Row="3" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="G1" Grid.Column="0" Grid.Row="5" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="G2" Grid.Column="1" Grid.Row="5" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="G3" Grid.Column="2" Grid.Row="5" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="G4" Grid.Column="3" Grid.Row="5" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="D1" Grid.Column="0" Grid.Row="7" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="D2" Grid.Column="1" Grid.Row="7" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="D3" Grid.Column="2" Grid.Row="7" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="D4" Grid.Column="3" Grid.Row="7" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="A1" Grid.Column="0" Grid.Row="9" FontSize="16" TextAlignment="Center" />
+        <TextBlock x:Name="A2" Grid.Column="1" Grid.Row="9" FontSize="16" TextAlignment="Center"/>
+        <TextBlock x:Name="A3" Grid.Column="2" Grid.Row="9" FontSize="16" TextAlignment="Center"/>
+        <TextBlock x:Name="A4" Grid.Column="3" Grid.Row="9" FontSize="16" TextAlignment="Center"/>
+        <TextBlock x:Name="Ee1" Grid.Column="0" Grid.Row="11" FontSize="16" TextAlignment="Center"/>
+        <TextBlock x:Name="Ee2" Grid.Column="1" Grid.Row="11" FontSize="16" TextAlignment="Center"/>
+        <TextBlock x:Name="Ee3" Grid.Column="2" Grid.Row="11" FontSize="16" TextAlignment="Center"/>
+        <TextBlock x:Name="Ee4" Grid.Column="3" Grid.Row="11" FontSize="16" TextAlignment="Center"/>
+        <Button x:Name="removePanel" Grid.Column="3" Background="Transparent" BorderBrush="Transparent" Content="x" Click="removePanel_Click" Margin="40,0,0,5"/>
+        <TextBox x:Name="positionIdBox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Background="Transparent" Width="28" RenderTransformOrigin="0.924,0.626"/>
     </Grid>
 </UserControl>

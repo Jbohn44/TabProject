@@ -27,9 +27,9 @@ namespace TabIt.Views
         public BassProjectPage(Project project)
         {
             InitializeComponent();
-            this.BassTabSegments = GetBassTabSegments(project.ProjectId);
+            this.BassTabSegments = new BassTabSegmentRepository().getSegments(project.ProjectId).ToList();
             this.Project = project;
-
+            addSegmentsToBts(this.BassTabSegments);
         }
         private void AddNotes_Click(object sender, RoutedEventArgs e)
         {
@@ -48,32 +48,6 @@ namespace TabIt.Views
         {
             var noteList = CreateNotes(b);
             return new NoteRepository().SaveNotes(noteList);
-        }
-
-        private List<BassTabSegment> GetBassTabSegments(int id)
-        {
-            var bl = new BarRepository().GetBars(id).ToList();
-            var segments = new List<BassTabSegment>();
-            if(bl.Count > 0)
-            {
-                foreach(var b in bl)
-                {
-                    var notes = new NoteRepository().GetNotes(b.BarId);
-                    var bs = new BassTabSegment(b, notes);
-                    bs.Height = 150;
-                    bs.Width = 150;
-                    segments.Add(bs);
-                }
-                foreach(var s in segments)
-                {
-                    this.bts.Items.Add(s);
-                }
-                return segments;
-            }
-            else
-            {
-                return segments;
-            }
         }
 
         private List<Note> CreateNotes(Bar b)
@@ -187,7 +161,9 @@ namespace TabIt.Views
         public void Update_Page()
         {
             this.bts.Items.Clear();
-            this.BassTabSegments = GetBassTabSegments(Project.ProjectId);
+            this.BassTabSegments = new BassTabSegmentRepository().getSegments(Project.ProjectId).ToList();
+            addSegmentsToBts(BassTabSegments);
+
         }
 
         private void Print_Button_Click(object sender, RoutedEventArgs e)
@@ -211,6 +187,14 @@ namespace TabIt.Views
             bar.PositionId = lastPostionId + 1;
 
             return bar;
+        }
+
+        private void addSegmentsToBts(List<BassTabSegment> bassTabSegments)
+        {
+            foreach (var item in bassTabSegments)
+            {
+                this.bts.Items.Add(item);
+            }
         }
 
    

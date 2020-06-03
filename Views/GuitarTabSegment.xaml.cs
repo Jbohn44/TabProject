@@ -24,6 +24,8 @@ namespace TabIt.Views
     {
         private int BarId { get; set; }
         private int ProjectId { get; set; }
+        public int PositionId { get; set; }
+
         private string _e1 { get; set; }
         private string _e2 { get; set; }
         private string _e3 { get; set; }
@@ -55,8 +57,11 @@ namespace TabIt.Views
             InitializeComponent();
             this.BarId = bar.BarId;
             this.ProjectId = bar.ProjectId;
+            this.PositionId = bar.PositionId;
             SetPrivateNotes(bar, notes);
             SetNotes();
+            this.SetPositionId();
+
 
         }
 
@@ -216,6 +221,10 @@ namespace TabIt.Views
 
         }
 
+        private void SetPositionId()
+        {
+            this.positionIdBox.Text = this.PositionId.ToString();
+        }
 
 
         private void removePanel_Click(object sender, RoutedEventArgs e)

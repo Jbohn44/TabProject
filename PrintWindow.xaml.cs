@@ -15,6 +15,8 @@ using System.Windows.Xps;
 using TabIt.Models;
 using TabIt.Repository;
 using TabIt.Views;
+using PdfSharp;
+using PdfSharp.Pdf;
 
 namespace TabIt
 {
@@ -39,37 +41,12 @@ namespace TabIt
             switch (project.ProjectTypeId)
             {
                 case 0:
-                    BassTabSegments = getBassTabSegments(project.ProjectId);
+                    BassTabSegments = new BassTabSegmentRepository().getSegments(project.ProjectId).ToList();
                     addSegmentsToListBox(BassTabSegments);
                     break;
                 case 1:
                     
                     break;
-            }
-        }
-
-        private List<BassTabSegment> getBassTabSegments(int projectId)
-        {
-            var bl = new BarRepository().GetBars(projectId).ToList();
-            var segments = new List<BassTabSegment>();
-            if (bl.Count > 0)
-            {
-                foreach (var b in bl)
-                {
-                    var notes = new NoteRepository().GetNotes(b.BarId);
-                    var bs = new BassTabSegment(b, notes);
-                    bs.Height = 150;
-                    bs.Width = 150;
-                    bs.removePanel.Visibility = Visibility.Hidden;
-                    bs.positionIdBox.Visibility = Visibility.Hidden;
-                    segments.Add(bs);
-                }
-              
-                return segments;
-            }
-            else
-            {
-                return segments;
             }
         }
 
@@ -85,11 +62,9 @@ namespace TabIt
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           // PrintDialog pd = new PrintDialog();
-            //FlowDocument doc = this.FD;
-            //this.sectionHead.Inlines.Add(this.Project.ProjectName);
-            //IDocumentPaginatorSource idpSource = doc;
-            //pd.PrintDocument(idpSource.DocumentPaginator, doc.Name);
+            PdfDocument doc = new PdfDocument();
+            doc.AddPage();
+            doc.Save("test.pdf");
         }
     }
 }
