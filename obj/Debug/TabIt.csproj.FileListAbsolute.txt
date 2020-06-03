@@ -54,3 +54,4 @@ C:\Users\ejboh\source\repos\TabIt\bin\Debug\PdfSharp.xml
 C:\Users\ejboh\source\repos\TabIt\bin\Debug\PdfSharp.Charting.xml
 C:\Users\ejboh\source\repos\TabIt\bin\Debug\de\PdfSharp.resources.dll
 C:\Users\ejboh\source\repos\TabIt\bin\Debug\de\PdfSharp.Charting.resources.dll
+C:\Users\ejboh\source\repos\TabIt\obj\Debug\TabIt.csproj.CoreCompileInputs.cache

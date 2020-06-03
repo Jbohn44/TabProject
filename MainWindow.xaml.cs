@@ -30,7 +30,7 @@ namespace TabIt
         {
                 InitializeComponent();
                 this.projectNames = new List<string>();
-            this.project = new Project();
+                this.project = new Project();
         }
 
         public string SubmitButton { get; private set; }
@@ -50,40 +50,75 @@ namespace TabIt
             this.ProjectTypeId = 1;
         }
 
+        //this needs to be refactored into seperate methods
         private void MenuItem_Click_Open_Saved(object sender, RoutedEventArgs e)
         {
             HideProjectMenu();
             this.exitButton.Visibility = Visibility.Visible;
-            ListView lv = new ListView();
-            lv.Name = "ProjectListView";
-            this.RegisterName(lv.Name, lv);
-            lv.Background = Brushes.Transparent;
-            lv.Width = 230;
+
+            ListView bassListView = new ListView();
+            bassListView.Name = "BassProjectListView";
+            this.RegisterName(bassListView.Name, bassListView);
+            bassListView.Background = Brushes.Transparent;
+            bassListView.Width = 230;
+
+            ListView guitarListView = new ListView();
+            guitarListView.Name = "GuitarProjectListView";
+            this.RegisterName(guitarListView.Name, guitarListView);
+            guitarListView.Background = Brushes.Transparent;
+            guitarListView.Width = 230;
+
             var projects = new ProjectRepository().GetProjects();
 
             // TODO: seperate guitar and bass projects in here
             foreach(var p in projects)
             {
-                Button projectButton = new Button
+                if (p.ProjectTypeId == 0)
                 {
-                    Height = 40,
-                    Width = 218,
-                    Name = "ProjectButton" + p.ProjectId.ToString(),
-                    Content = p.ProjectName,
-                    Background = (Brush)new BrushConverter().ConvertFrom("#FF3D3F48"),
-                    BorderBrush = Brushes.Transparent,
-                    Foreground = Brushes.White
-                };
-                this.RegisterName(projectButton.Name, projectButton);
-                this.projectNames.Add(projectButton.Name);
-                projectButton.Tag = p.ProjectId;
-                projectButton.Click += ProjectButton_Click;
-                lv.Items.Add(projectButton);
+                    Button projectButton = new Button
+                    {
+                        Height = 40,
+                        Width = 218,
+                        Name = "ProjectButton" + p.ProjectId.ToString(),
+                        Content = p.ProjectName,
+                        Background = (Brush)new BrushConverter().ConvertFrom("#FF3D3F48"),
+                        BorderBrush = Brushes.Transparent,
+                        Foreground = Brushes.White
+                    };
+                    this.RegisterName(projectButton.Name, projectButton);
+                    this.projectNames.Add(projectButton.Name);
+                    projectButton.Tag = p.ProjectId;
+                    projectButton.Click += ProjectButton_Click;
+                    bassListView.Items.Add(projectButton);
+                }
+                if(p.ProjectTypeId == 1)
+                {
+                    Button projectButton = new Button
+                    {
+                        Height = 40,
+                        Width = 218,
+                        Name = "ProjectButton" + p.ProjectId.ToString(),
+                        Content = p.ProjectName,
+                        Background = (Brush)new BrushConverter().ConvertFrom("#FF3D3F48"),
+                        BorderBrush = Brushes.Transparent,
+                        Foreground = Brushes.White
+                    };
+                    this.RegisterName(projectButton.Name, projectButton);
+                    this.projectNames.Add(projectButton.Name);
+                    projectButton.Tag = p.ProjectId;
+                    projectButton.Click += ProjectButton_Click;
+                    guitarListView.Items.Add(projectButton);
+                }
             }
-            Grid.SetRow(lv, 5);
-            Grid.SetColumnSpan(lv, 4);
-            Grid.SetRowSpan(lv, 25);
-            this.ProjectMenu.Children.Add(lv);
+            Grid.SetRow(bassListView, 5);
+            Grid.SetColumnSpan(bassListView, 4);
+            Grid.SetRowSpan(bassListView, 12);
+            this.ProjectMenu.Children.Add(bassListView);
+
+            Grid.SetRow(guitarListView, 18);
+            Grid.SetColumnSpan(guitarListView, 4);
+            Grid.SetRowSpan(guitarListView, 12);
+            this.ProjectMenu.Children.Add(guitarListView);
 
         }
 
@@ -110,9 +145,13 @@ namespace TabIt
             {
                 this.UnregisterName(n);
             }
-            var lv = (ListView)this.FindName("ProjectListView");
-            this.ProjectMenu.Children.Remove(lv);
-            this.UnregisterName(lv.Name);
+            var blv = (ListView)this.FindName("BassProjectListView");
+            this.ProjectMenu.Children.Remove(blv);
+            this.UnregisterName(blv.Name);
+
+            var glv = (ListView)this.FindName("GuitarProjectListView");
+            this.ProjectMenu.Children.Remove(glv);
+            this.UnregisterName(glv.Name);
         }
 
         private void OpenBassProject(Project p)
@@ -287,7 +326,7 @@ namespace TabIt
                     {
                         RemoveProjectSideNav();
                     }
-                    if (FindName("ProjectListView") != null)
+                    if (FindName("BassProjectListView") != null || FindName("GuitarProjectListView") != null)
                     {
                         RemoveListView();
                         this.projectNames = new List<string>();
